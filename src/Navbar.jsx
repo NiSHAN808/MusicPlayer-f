@@ -1,9 +1,9 @@
 import "./Navbarstyle.css";
 import React, { useRef, useState } from "react";  import { Link } from "react-router";
-function Navbar() {
+function Navbar(props) {
     let pageStyle = useRef(0);
     const pages = useRef(0);
-
+        let input=useRef();
     function handleHamClick() {
         if (pageStyle.current === 0) {
 
@@ -16,21 +16,30 @@ function Navbar() {
         }
     }
      let link="/";
+
+     function handleSearchButtonClick() {
+        console.log("clicked");
+        console.log(input.current.value); props.setSearch(input.current.value)
+     }
     return (
         <>
 
             <nav className="bg-blue-300 h-[10vw] flex justify-between items-center sticky top-0 lg:h-13  " >
                 <div className="logo">
-                    {/* website
-                    logo-ecommerce
-                       let link="/products/"+x+"/"+props.name+"/"+props.price+"/"+props.sold+"/"+props.category;
-                        */}
     <Link to={link} className="inline-flex justify-center h-fit  inline w-[40vw] h-[10vw] overflow-hidden   p-[1vw]  ">
-        <img loading="lazy" src="../public/logo/NishanBeats.png" className=" h-[8vw] lg:h-[3.5vw] xl:h-[2.5vw] 2xl:h-[1.8vw]"/>
+        <img loading="lazy" src="../logo/NishanBeats.png" className=" h-[8vw] lg:h-[3.5vw] xl:h-[2.5vw] 2xl:h-[1.8vw]"/>
 
  
     </Link>
                 </div>
+<div>                 <input 
+        type="text" 
+        placeholder="Search..." 
+        class=" rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+     ref={input} />
+      <button class=" text-gray-500 hover:text-blue-500" onClick={handleSearchButtonClick}>
+        🔍
+      </button></div>
 
                 <div onClick={handleHamClick} className="hidden hamburger z-5 mr-[5vw]">
 
@@ -42,17 +51,9 @@ function Navbar() {
 
 
                 </div>
+
                 <div ref={pages} className="pages w-[40vw] flex justify-around">
-                <Link to="/" className="hover:text-purple-700 md:text-[3.5vw] lg:text-[2vw] xl:text-[1.9vw] " onClick={handleHamClick} >
-                    <input 
-        type="text" 
-        placeholder="Search..." 
-        class=" rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-      />
-      <button class=" text-gray-500 hover:text-blue-500">
-        🔍
-      </button>
-                </Link>
+  
                 <Link to="/" className="hover:text-purple-700 md:text-[3.5vw]  lg:text-[2vw] xl:text-[1.9vw]" onClick={handleHamClick}>Products</Link>
                 <Link to="/" className="hover:text-purple-700 md:text-[3.5vw]  lg:text-[2vw] xl:text-[1.9vw]"onClick={handleHamClick} >Cart</Link>
                     {/* <a className="hover:text-purple-700 ">home</a>

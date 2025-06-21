@@ -6,21 +6,29 @@ const songLink="https://cdnt-preview.dzcdn.net/api/1/1/e/4/5/0/e4589311b7cdd524d
 
 function Song() {
   const [data,setData]=useState([]);
-
+  const [search,setSearch]=useState();
 
   const [playedMusic, setPlayedMusic] = useState();
   let audioRef = useRef();
 
 
 
-//   useEffect(() => {
-//     fetch('http://localhost:5000/api/message')
-//     .then(res => res.json()) //  setData(data)
-//     .then(data =>   setData(data));
-//     audioRef.current.load();
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/api/message')
+  //   .then(res => res.json()) //  setData(data)
+  //   .then(data =>   setData(data));
+  //   audioRef.current.load();
 
-//     audioRef.current.play();
-//   }, [playedMusic])
+  //   audioRef.current.play();
+  // }, [playedMusic])
+  useEffect(() => {
+    fetch('http://localhost:5000/api/message')
+    .then(res => res.json()) //  setData(data)
+    .then(data =>   setData(data));
+    audioRef.current.load();
+
+    audioRef.current.play();
+  }, [search])
 
   function handleMusicChange(index) {
     setPlayedMusic(data[index].music);
@@ -30,7 +38,7 @@ function Song() {
   return (
     
      <>
-     <Navbar/>
+     <Navbar setSearch={setSearch}/>  {search}
       <div className="flex flex-col lg:flex-row">
         <div className='inline-flex flex-col justify-center items-center h-[50vh] w-[100vw] lg:h-[100vh] Lg:w-[50vw] bg-pink-300  '>
           <div className="inline-flex  h-[30vw] w-[30vw] bg-red-300 ">
