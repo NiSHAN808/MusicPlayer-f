@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import Navbar from "./NavBar";
+import Navbar from "./pages/NavBar";
 
 const songLink =
   "https://cdnt-preview.dzcdn.net/api/1/1/e/4/5/0/e4589311b7cdd524d1767bc2b7b6e17f.mp3?hdnea=exp=1750045488~acl=/api/1/1/e/4/5/0/e4589311b7cdd524d1767bc2b7b6e17f.mp3*~data=user_id=0,application_id=42~hmac=bb724a3c6c64f2f399f2c66487cf363ee794542ac5d76f5447f0cf64fdfb15f0";

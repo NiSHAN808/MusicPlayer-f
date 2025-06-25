@@ -70,18 +70,18 @@ function Navbar(props) {
 
         <div ref={pages} className="pages w-[40vw] flex justify-around">
           <Link
-            to="/"
+            to="/Playlist"
             className="hover:text-purple-700 md:text-[3.5vw] text-white lg:text-[2vw] xl:text-[1.9vw]"
             onClick={handleHamClick}
           >
-            Favourite
+            Playlist
           </Link>
           <Link
-            to="/"
+            to="/SearchedPage"
             className="hover:text-purple-700 md:text-[3.5vw] text-white lg:text-[2vw] xl:text-[1.9vw]"
             onClick={handleHamClick}
           >
-            Pin
+            pin
           </Link>
         </div>
       </nav>
