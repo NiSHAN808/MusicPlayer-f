@@ -1,23 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-let tempIm = "https://api.deezer.com/artist/4401431/image";
-let tempTl = "Ayushi the Music";
-let tempAt = "Subverso";
-const HomeSongThum = () => {
+function HomeSongThum(props) {
+  let link = "/Song/" + props.id;
   return (
-    <div>
-      <>
-        <div className=" h-60 w-50">
-          <img src={tempIm} className="h-50 w-50 rounded-[1rem]"></img>
+    <>
+      <Link to={link}>
+        <div className="text-white h-60 w-50 inline-flex flex-col m-5">
+          <img src={props.image} className="h-50 w-50 rounded-[1rem]"></img>
 
-          <div className="font-mono text-[1rem] mt-[0.2rem] h-[0.9rem]">
-            {tempTl}
+          <div className="font-mono text-[1.1rem] mt-[0.2rem] h-[3rem] ">
+            {props.titleShort}
           </div>
-          <div className="font-sans">{tempAt}</div>
+          <div className="font-sans text-stone-500">{props.artistName}</div>
         </div>
-      </>
-    </div>
+      </Link>
+    </>
   );
-};
+}
 
 export default HomeSongThum;

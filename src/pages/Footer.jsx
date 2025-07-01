@@ -16,7 +16,7 @@ function Footer() {
   };
   return (
     <footer>
-      <div className="inline-block w-full bg-blue-800  text-white inline-block p-[3rem]  ">
+      <div className="inline-block w-full bg-purple-800  text-white inline-block p-[3rem]  ">
         <div className="flex justify-around max-[700px]:flex-col">
           <div className="inline-block">
             <header className="text-[2.5rem] flex justify-between">

@@ -1,15 +1,6 @@
-import { useState } from 'react'
-import Song from './Song.jsx'
+import { useState } from "react";
 
 function App() {
-    
-
-  return (
-    <>
-<Song/>
-    
-    </>
-  )
-
+  return <></>;
 }
-export default App
+export default App;

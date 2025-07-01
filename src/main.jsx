@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage.jsx";
 import Playlist from "./pages/Playlist.jsx";
 import SearchedPage from "./pages/SearchedPage.jsx";
 import Footer from "./pages/Footer.jsx";
+import Song from "./pages/Song.jsx";
 
 import {
   BrowserRouter,
@@ -15,6 +16,7 @@ import {
 } from "react-router-dom";
 
 import Navbar from "./pages/NavBar";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +45,16 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <SearchedPage />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/Song/:id",
+    element: (
+      <>
+        <Navbar />
+        <Song />
         <Footer />
       </>
     ),
