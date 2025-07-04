@@ -16,9 +16,9 @@ function Song() {
     fetch(`http://localhost:5000/track/${id}`)
       .then((res) => res.json()) //  setData(data)
       .then((data) => setData(data));
-    //  audioRef.current.load();
+    //    audioRef.current.load();
     console.log(data);
-    //audioRef.current.play();
+    //  audioRef.current.play();
   }, [search]);
 
   function handleMusicChange(index) {
@@ -43,7 +43,7 @@ function Song() {
 
           {/* <h1 className="text-[2.5vw]">{data[0].name}</h1> */}
           {data?.preview ? (
-            <audio controls>
+            <audio autoPlay hidden controls>
               <source src={data.preview} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
