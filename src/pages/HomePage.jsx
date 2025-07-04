@@ -4,7 +4,7 @@ import HomeSongThum from "../Blocks/HomeSongThum";
 function SongsForYou() {
   return (
     <>
-      <div>songs for you</div>
+      <div className=" text-[7vw] w-[90vw] ml-[5vw]">songs for you</div>
     </>
   );
 }
@@ -27,22 +27,24 @@ const HomePage = () => {
   return (
     <div className="bg-black text-white">
       <SongsForYou />
-      <div className="">
-        {songsData === undefined ? (
-          <>nothing</>
-        ) : (
-          songsData.tracks.data.map((d, index) => (
-            <div className="inline-flex" key={index}>
-              <HomeSongThum
-                titleShort={d.title_short}
-                artistName={d.artist.name}
-                image={d.album.cover_medium}
-                preview={d.preview}
-                id={d.id}
-              />
-            </div>
-          ))
-        )}
+      <div className="w-full inline-flex justify-center ">
+        <div className="w-[90vw] ">
+          {songsData === undefined ? (
+            <>nothing</>
+          ) : (
+            songsData.tracks.data.map((d, index) => (
+              <div className="inline-flex" key={index}>
+                <HomeSongThum
+                  titleShort={d.title_short}
+                  artistName={d.artist.name}
+                  image={d.album.cover_medium}
+                  preview={d.preview}
+                  id={d.id}
+                />
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );

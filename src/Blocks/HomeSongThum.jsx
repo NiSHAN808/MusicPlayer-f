@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 
 function HomeSongThum(props) {
   let link = "/Song/" + props.id;
+  //phone 2 = 90 = 40+40+   3.3*3
   return (
     <>
       <Link to={link}>
-        <div className="text-white h-60 w-50 inline-flex flex-col m-5">
-          <img src={props.image} className="h-50 w-50 rounded-[1rem]"></img>
+        <div className="text-white h-[50vw] w-[40vw] inline-flex flex-col ml-[3.3vw]">
+          <img
+            src={props.image}
+            className="h-[40vw] w-[40vw] rounded-[1rem]"
+          ></img>
 
           <div className="font-mono text-[1.1rem] mt-[0.2rem] h-[1.2rem] ">
             {props.titleShort.length > 18

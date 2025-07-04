@@ -43,7 +43,7 @@ function Song() {
 
           {/* <h1 className="text-[2.5vw]">{data[0].name}</h1> */}
           {data?.preview ? (
-            <audio autoPlay hidden controls>
+            <audio autoPlay controls>
               <source src={data.preview} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
