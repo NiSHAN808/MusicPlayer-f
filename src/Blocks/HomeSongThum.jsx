@@ -7,10 +7,17 @@ function HomeSongThum(props) {
   return (
     <>
       <Link to={link}>
-        <div className="text-white h-[50vw] w-[40vw] md:h-[32vw] md:w-[25vw] inline-flex flex-col ml-[3.3vw]">
+        <div
+          className="text-white h-[50vw] w-[40vw] 
+        md:h-[32vw] md:w-[25vw] 
+             lg:h-[24vw] lg:w-[18vw] 
+        inline-flex flex-col ml-[3.3vw]"
+        >
           <img
             src={props.image}
-            className="h-[40vw] w-[40vw] md:h-[25vw] md:w-[25vw] rounded-[1rem]"
+            className="h-[40vw] w-[40vw] md:h-[25vw] md:w-[25vw]
+                 lg:h-[18vw] lg:w-[18vw] 
+                  rounded-[1rem]"
           ></img>
 
           <div className="font-mono text-[1.1rem] mt-[0.2rem] h-[1.2rem] ">

@@ -4,7 +4,9 @@ import HomeSongThum from "../Blocks/HomeSongThum";
 function SongsForYou() {
   return (
     <>
-      <div className=" text-[7vw] w-[90vw] ml-[5vw]">songs for you</div>
+      <div className=" text-[7vw] w-[90vw] ml-[5vw] h-[20vw] inline-flex items-end mb-[2vw] ">
+        songs for you
+      </div>
     </>
   );
 }

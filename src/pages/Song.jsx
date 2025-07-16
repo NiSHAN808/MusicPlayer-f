@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import SongPageRec from "./SongPageRec";
 
 const songLink =
   "https://cdnt-preview.dzcdn.net/api/1/1/e/4/5/0/e4589311b7cdd524d1767bc2b7b6e17f.mp3?hdnea=exp=1750045488~acl=/api/1/1/e/4/5/0/e4589311b7cdd524d1767bc2b7b6e17f.mp3*~data=user_id=0,application_id=42~hmac=bb724a3c6c64f2f399f2c66487cf363ee794542ac5d76f5447f0cf64fdfb15f0";
@@ -29,7 +30,7 @@ function Song() {
   return (
     <>
       <div className="flex flex-col lg:flex-row">
-        <div className="inline-flex flex-col justify-center items-center h-[50vh] w-[100vw] lg:h-[100vh] Lg:w-[50vw] bg-pink-300  ">
+        <div className="inline-flex flex-col justify-center items-center h-[50vh] w-full lg:h-[100vh] Lg:w-[50vw] bg-pink-300  ">
           <div className="inline-flex  h-[30vw] w-[30vw] bg-red-300 ">
             {data?.album?.cover_medium ? (
               <img
@@ -49,7 +50,7 @@ function Song() {
             </audio>
           ) : null}
         </div>
-        <div className="bg-blue-200 inline-flex h-[50vh] w-[100vw]  lg:h-[100vh]  Lg:w-[50vw] p-[2vw] ">
+        <div className="bg-blue-200 inline-flex h-[50vh] w-full  lg:h-[100vh]  Lg:w-[50vw] p-[2vw] ">
           {/* <ul className="bg-purple-200">
             {data.map((dat, index) => (
               <li
@@ -62,6 +63,7 @@ function Song() {
             ))}{" "}
 
           </ul> */}
+          <SongPageRec />
         </div>
       </div>
     </>
