@@ -32,6 +32,12 @@ function Song() {
     setPlayedMusic(data[index].music);
     console.log(data[index].name);
   }
+
+  function secondsToMinue(sec) {
+    let time = Math.trunc(sec / 60);
+    return `${time}:${sec - time * 60}`;
+  }
+
   console.log(dataRec);
   return (
     <>
@@ -56,13 +62,18 @@ function Song() {
             </audio>
           ) : null}
         </div>
-        <div className="bg-blue-200 inline-flex flex-col h-fit w-full  lg:h-[100vh]  Lg:w-[50vw] p-[2vw] ">
+        <div className="bg-blue-700 inline-flex flex-col h-fit w-full  lg:h-[100vh]  Lg:w-[50vw] p-[2vw] ">
           {dataRec.tracks === undefined ? (
-            <>nothing</>
+            <>loading</>
           ) : (
             dataRec.tracks.data.map((d, index) => (
               <div key={index} className=" ">
-                <SongPageRec title={d.title} img={d.album.cover_medium} />
+                <SongPageRec
+                  img={d.album.cover_medium}
+                  title={d.title}
+                  artist={d.artist.name}
+                  duration={secondsToMinue(d.duration)}
+                />
               </div>
             ))
           )}
