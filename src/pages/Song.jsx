@@ -7,6 +7,7 @@ const songLink =
 
 function Song() {
   const [data, setData] = useState([]);
+  const [dataRec, setDataRec] = useState([]);
   const [search, setSearch] = useState();
 
   const [playedMusic, setPlayedMusic] = useState();
@@ -15,18 +16,23 @@ function Song() {
 
   useEffect(() => {
     fetch(`http://localhost:5000/track/${id}`)
-      .then((res) => res.json()) //  setData(data)
+      .then((res) => res.json())
       .then((data) => setData(data));
-    //    audioRef.current.load();
-    console.log(data);
+
+    fetch("http://localhost:5000/deezer/chart")
+      .then((res) => res.json())
+      .then((data) => {
+        setDataRec(data);
+        console.log(data);
+      });
     //  audioRef.current.play();
-  }, [search]);
+  }, []);
 
   function handleMusicChange(index) {
     setPlayedMusic(data[index].music);
     console.log(data[index].name);
   }
-  console.log(data);
+  console.log(dataRec);
   return (
     <>
       <div className="flex flex-col lg:flex-row">
@@ -44,26 +50,22 @@ function Song() {
 
           {/* <h1 className="text-[2.5vw]">{data[0].name}</h1> */}
           {data?.preview ? (
-            <audio autoPlay controls>
+            <audio controls>
               <source src={data.preview} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
           ) : null}
         </div>
-        <div className="bg-blue-200 inline-flex h-[50vh] w-full  lg:h-[100vh]  Lg:w-[50vw] p-[2vw] ">
-          {/* <ul className="bg-purple-200">
-            {data.map((dat, index) => (
-              <li
-                key={index}
-                className="text-[2rem] text-black cursor-pointer hover:bg-red-200"
-                onClick={() => handleMusicChange(index)}
-              >
-                {dat.name}
-              </li>
-            ))}{" "}
-
-          </ul> */}
-          <SongPageRec />
+        <div className="bg-blue-200 inline-flex flex-col h-fit w-full  lg:h-[100vh]  Lg:w-[50vw] p-[2vw] ">
+          {dataRec.tracks === undefined ? (
+            <>nothing</>
+          ) : (
+            dataRec.tracks.data.map((d, index) => (
+              <div key={index} className=" ">
+                <SongPageRec title={d.title} img={d.album.cover_medium} />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </>
