@@ -5,7 +5,7 @@ let img =
 const SongPageRec = () => {
   return (
     <>
-      <div className="flex flex-row  w-[98vw] ">
+      <div className="flex flex-row  w-[98vw]  h-[13vw] bg-purple-300 relative">
         <div>
           <img
             src={img}
@@ -15,8 +15,11 @@ const SongPageRec = () => {
           ></img>
         </div>
         <div className=" ml-[2vw]">
-          <div className=" font-bold text-[5vw]">the song name</div>
+          <div className=" font-bold text-[4.5vw]">the song name</div>
           <div className="text-[3.5vw]">auther</div>
+        </div>
+        <div className="bg-red absolute right-0 inline-flex justify-center items-center h-full p-[3vw]">
+          2:56
         </div>
       </div>
     </>
