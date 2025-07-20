@@ -62,13 +62,15 @@ function Song() {
             </audio>
           ) : null}
         </div>
-        <div className="bg-blue-700 inline-flex flex-col h-fit w-full  lg:h-[100vh]  Lg:w-[50vw] p-[2vw] ">
+        <div className="bg-stone-950 inline-flex flex-col h-fit w-full  lg:h-[100vh]  Lg:w-[50vw] p-[2vw] ">
           {dataRec.tracks === undefined ? (
             <>loading</>
           ) : (
             dataRec.tracks.data.map((d, index) => (
               <div key={index} className=" ">
                 <SongPageRec
+                  id={d.id}
+                  playedId={id}
                   img={d.album.cover_medium}
                   title={d.title}
                   artist={d.artist.name}
