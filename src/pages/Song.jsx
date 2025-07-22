@@ -11,7 +11,7 @@ function Song() {
   const [search, setSearch] = useState();
 
   const [playedMusic, setPlayedMusic] = useState();
-  let audioRef = useRef();
+  const audioRef = useRef(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -25,9 +25,12 @@ function Song() {
         setDataRec(data);
         console.log(data);
       });
-    //  audioRef.current.play();
-  }, []);
-
+    if (audioRef.current) {
+      audioRef.current.load();
+      audioRef.current.play();
+    }
+  }, [id]);
+  console.log(id);
   function handleMusicChange(index) {
     setPlayedMusic(data[index].music);
     console.log(data[index].name);
@@ -56,7 +59,7 @@ function Song() {
 
           {/* <h1 className="text-[2.5vw]">{data[0].name}</h1> */}
           {data?.preview ? (
-            <audio controls>
+            <audio autoPlay controls ref={audioRef}>
               <source src={data.preview} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
