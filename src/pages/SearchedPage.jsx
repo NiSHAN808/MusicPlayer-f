@@ -1,7 +1,13 @@
 import React from "react";
-
+import { useParams } from "react-router-dom";
 const SearchedPage = () => {
-  return <div>SearchedPage</div>;
+  const { sec } = useParams();
+  return (
+    <div>
+      {sec}
+      <div></div> SearchedPage
+    </div>
+  );
 };
 
 export default SearchedPage;

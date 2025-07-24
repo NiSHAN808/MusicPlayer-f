@@ -14,19 +14,20 @@ function Navbar(props) {
       pageStyle.current = 0;
     }
   }
-  let link = "/";
 
   function handleSearchButtonClick() {
-    console.log("clicked");
-    console.log(input.current.value);
-    props.setSearch(input.current.value);
+    //props.setSearch(input.current.value);
+    setSecTxt(input.current.value);
   }
+
+  const [secTxt, setSecTxt] = useState();
+  console.log(secTxt);
   return (
     <>
       <nav className="bg-black h-[10vw] flex justify-between items-center sticky top-0 lg:h-13  ">
         <div className="logo">
           <Link
-            to={link}
+            to="/"
             className="inline-flex justify-center h-fit  inline w-[40vw] h-[10vw] overflow-hidden   p-[1vw]  "
           >
             <img
@@ -36,19 +37,21 @@ function Navbar(props) {
             />
           </Link>
         </div>
-        <div color=" flex searchBox">
+        <div color=" flex searchBox ">
           <input
             type="text"
             placeholder="Search..."
-            className=" rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+            className=" rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             ref={input}
           />
-          <button
-            className=" text-gray-500 hover:text-blue-500"
-            onClick={handleSearchButtonClick}
-          >
-            🔍
-          </button>
+          <Link to="/SearchedPage/sec">
+            <button
+              className=" text-gray-500 hover:text-blue-500"
+              //onClick={handleSearchButtonClick}
+            >
+              🔍
+            </button>
+          </Link>
         </div>
 
         <div onClick={handleHamClick} className="hidden hamburger z-5 mr-[5vw]">

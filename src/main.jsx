@@ -15,7 +15,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import Navbar from "./pages/NavBar";
+import Navbar from "./pages/Navbar.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/SearchedPage",
+    path: "/SearchedPage/:sec",
     element: (
       <>
         <Navbar />
