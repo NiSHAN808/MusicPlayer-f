@@ -15,11 +15,6 @@ function Navbar(props) {
     }
   }
 
-  function handleSearchButtonClick() {
-    //props.setSearch(input.current.value);
-    setSecTxt(input.current.value);
-  }
-
   const [secTxt, setSecTxt] = useState();
   console.log(secTxt);
   return (
@@ -44,13 +39,8 @@ function Navbar(props) {
             className=" rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             ref={input}
           />
-          <Link to="/SearchedPage/sec">
-            <button
-              className=" text-gray-500 hover:text-blue-500"
-              //onClick={handleSearchButtonClick}
-            >
-              🔍
-            </button>
+          <Link to={`/SearchedPage/${input.current.value}`}>
+            <button className=" text-gray-500 hover:text-blue-500">🔍</button>
           </Link>
         </div>
 
