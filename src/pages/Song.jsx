@@ -23,14 +23,13 @@ function Song() {
       .then((res) => res.json())
       .then((data) => {
         setDataRec(data);
-        console.log(data);
       });
     if (audioRef.current) {
       audioRef.current.load();
       audioRef.current.play();
     }
   }, [id]);
-  console.log(id);
+
   function handleMusicChange(index) {
     setPlayedMusic(data[index].music);
     console.log(data[index].name);
@@ -41,7 +40,6 @@ function Song() {
     return `${time}:${sec - time * 60}`;
   }
 
-  console.log(dataRec);
   return (
     <>
       <div className="flex flex-col lg:flex-row">
