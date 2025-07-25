@@ -5,6 +5,8 @@ function Navbar(props) {
   let pageStyle = useRef(0);
   const pages = useRef(0);
   let input = useRef();
+
+  const [secTxt, setSecTxt] = useState();
   function handleHamClick() {
     if (pageStyle.current === 0) {
       pages.current.style.display = "flex";
@@ -14,9 +16,10 @@ function Navbar(props) {
       pageStyle.current = 0;
     }
   }
+  function onCh() {
+    setSecTxt(input.current.value);
+  }
 
-  const [secTxt, setSecTxt] = useState();
-  console.log(secTxt);
   return (
     <>
       <nav className="bg-black h-[10vw] flex justify-between items-center sticky top-0 lg:h-13  ">
@@ -38,10 +41,11 @@ function Navbar(props) {
             placeholder="Search..."
             className=" rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             ref={input}
+            onChange={onCh}
           />
-          <Link to={`/SearchedPage/${input.current.value}`}>
+          <Link to={`/SearchedPage/${secTxt}`}>
             <button className=" text-gray-500 hover:text-blue-500">🔍</button>
-          </Link>
+          </Link>{" "}
         </div>
 
         <div onClick={handleHamClick} className="hidden hamburger z-5 mr-[5vw]">

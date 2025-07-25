@@ -25,7 +25,7 @@ const HomePage = () => {
         setLoading(false);
       });
   }, []);
-  console.log(songsData);
+
   return (
     <div className="bg-black text-white">
       <SongsForYou />
