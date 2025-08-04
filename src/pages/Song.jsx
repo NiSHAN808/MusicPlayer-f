@@ -63,7 +63,7 @@ function Song() {
             </audio>
           ) : null}
         </div>
-        <div className="bg-stone-950 inline-flex flex-col h-fit w-full  lg:h-[100vh]  lg:w-[60vw] p-[2vw] lg:p-[1.1vw] overflow-scroll">
+        <div className="bg-stone-950 inline-flex flex-col h-fit w-full  lg:h-[100vh]  lg:w-[60vw] p-[2vw] lg:p-[1.1vw] le:overflow-scroll">
           {dataRec.tracks === undefined ? (
             <>loading</>
           ) : (

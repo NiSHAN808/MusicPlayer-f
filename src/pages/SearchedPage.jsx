@@ -20,15 +20,15 @@ const SearchedPage = () => {
         console.error("Error fetching users:", err);
         setLoading(false);
       });
-  }, []);
+  }, [sec]);
   useEffect(() => {
     console.log("Updated Songs Data:", songsData);
   }, [songsData]);
 
   return (
-    <div>
+    <div className="bg-black">
       {sec}
-      <div></div> SearchedPage
+      <div></div>
       <div className="w-full inline-flex justify-center ">
         <div className="w-[90vw] ">
           {songsData === undefined ? (
