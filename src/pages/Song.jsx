@@ -2,8 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import SongPageRec from "../Blocks/SongPageRec";
 
-const songLink =
-  "https://cdnt-preview.dzcdn.net/api/1/1/e/4/5/0/e4589311b7cdd524d1767bc2b7b6e17f.mp3?hdnea=exp=1750045488~acl=/api/1/1/e/4/5/0/e4589311b7cdd524d1767bc2b7b6e17f.mp3*~data=user_id=0,application_id=42~hmac=bb724a3c6c64f2f399f2c66487cf363ee794542ac5d76f5447f0cf64fdfb15f0";
+//https://musicplayer-s.onrender.com
 
 function Song() {
   const [data, setData] = useState([]);
@@ -15,11 +14,13 @@ function Song() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/track/${id}`)
+    // fetch(`http://localhost:5000/track/${id}`)
+    fetch(`https://musicplayer-s.onrender.com/track/${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
 
-    fetch("http://localhost:5000/deezer/chart")
+    // fetch("http://localhost:5000/deezer/chart")
+    fetch("https://musicplayer-s.onrender.com/deezer/chart")
       .then((res) => res.json())
       .then((data) => {
         setDataRec(data);
@@ -54,14 +55,14 @@ function Song() {
               />
             ) : null}
           </div>
-
           {/* <h1 className="text-[2.5vw]">{data[0].name}</h1> */}
           {data?.preview ? (
             <audio autoPlay controls ref={audioRef}>
               <source src={data.preview} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
-          ) : null}
+          ) : null}{" "}
+          <input type="checkbox"></input>
         </div>
         <div className="bg-stone-950 inline-flex flex-col h-fit w-full  lg:h-[100vh]  lg:w-[60vw] p-[2vw] lg:p-[1.1vw] lg:overflow-y-scroll  scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200">
           {dataRec.tracks === undefined ? (

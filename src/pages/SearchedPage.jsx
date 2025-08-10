@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { data, useParams } from "react-router-dom";
 import HomeSongThum from "../Blocks/HomeSongThum";
 
+//https://musicplayer-s.onrender.com
+
 const SearchedPage = () => {
   const { sec } = useParams();
 
   const [songsData, setSongsData] = useState();
   const [lodings, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:5000/search/${sec}`)
+    // fetch(`http://localhost:5000/search/${sec}`) for local
+    fetch(`https://musicplayer-s.onrender.com/search/${sec}`)
       .then((res) => res.json())
       .then((response) => {
         setSongsData(response.data);

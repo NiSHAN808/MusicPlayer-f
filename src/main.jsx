@@ -8,7 +8,7 @@ import Playlist from "./pages/Playlist.jsx";
 import SearchedPage from "./pages/SearchedPage.jsx";
 import Footer from "./pages/Footer.jsx";
 import Song from "./pages/Song.jsx";
-
+// import { GoogleOAuthProvider } from "@react-oauth/google";
 import {
   BrowserRouter,
   createBrowserRouter,
@@ -60,8 +60,11 @@ const router = createBrowserRouter([
     ),
   },
 ]);
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    {/* <GoogleOAuthProvider clientId="97028744224-0fn9qr0aiu5amhtid3n0hc6p508d7k6j.apps.googleusercontent.com"> */}
     <RouterProvider router={router} />
+    {/* </GoogleOAuthProvider> */}
   </StrictMode>
 );

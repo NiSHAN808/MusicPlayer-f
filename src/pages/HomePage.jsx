@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import HomeSongThum from "../Blocks/HomeSongThum";
+import { GoogleLogin } from "@react-oauth/google";
 
 function SongsForYou() {
   return (
@@ -10,11 +11,13 @@ function SongsForYou() {
     </>
   );
 }
+//https://musicplayer-s.onrender.com
 const HomePage = () => {
   const [songsData, setSongsData] = useState();
   const [lodings, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/deezer/chart")
+    // fetch("http://localhost:5000/deezer/chart")
+    fetch("https://musicplayer-s.onrender.com/deezer/chart")
       .then((res) => res.json())
       .then((data) => {
         setSongsData(data);
@@ -26,8 +29,17 @@ const HomePage = () => {
       });
   }, []);
 
+  // const handleSuccess = (credentialResponse) => {
+  //   console.log("JWT Token", credentialResponse.credential);
+  // };
+
+  // const handleError = () => {
+  //   console.log("Login Failed");
+  // };
+
   return (
     <div className="bg-black text-white">
+      {/* <GoogleLogin onSuccess={handleSuccess} onError={handleError} />*/}
       <SongsForYou />
       <div className="w-full inline-flex justify-center ">
         <div className="w-[90vw] ">
