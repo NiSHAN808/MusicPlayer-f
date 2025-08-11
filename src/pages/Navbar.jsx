@@ -35,7 +35,7 @@ function Navbar(props) {
             />
           </Link>
         </div>
-        <div color=" flex searchBox ">
+        <div color=" flex flex-row searchBox ">
           <input
             type="text"
             placeholder="Search..."

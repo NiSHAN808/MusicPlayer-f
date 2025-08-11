@@ -8,7 +8,7 @@ function HomeSongThum(props) {
     <>
       <Link to={link}>
         <div
-          className="text-white h-[50vw] w-[40vw] 
+          className="text-white  w-[40vw] mt-[0.5rem]
         md:h-[32vw] md:w-[25vw] 
              lg:h-[24vw] lg:w-[18vw] 
         inline-flex flex-col ml-[3.3vw]"
@@ -20,12 +20,12 @@ function HomeSongThum(props) {
                   rounded-[1rem]"
           ></img>
 
-          <div className="font-mono text-[1.1rem] mt-[0.2rem] h-[1.2rem] ">
+          <div className="font-mono text-[0.9rem]   h-[1.1rem] overflow-hidden ">
             {props.titleShort.length > 18
               ? props.titleShort.slice(0, 19)
               : props.titleShort}
           </div>
-          <div className="font-sans text-stone-500 text-[0.9rem]">
+          <div className="font-sans text-stone-500 h-[1rem] text-[0.7rem] overflow-hidden">
             {props.artistName}
           </div>
         </div>
