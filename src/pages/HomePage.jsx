@@ -44,7 +44,7 @@ const HomePage = () => {
       <div className="w-full inline-flex justify-center ">
         <div className="w-[100vw] ">
           {songsData === undefined ? (
-            <>loading</>
+            <div className="h-[90vh]">loading</div>
           ) : (
             songsData.tracks.data.map((d, index) => (
               <div className="inline-flex" key={index}>

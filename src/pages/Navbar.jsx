@@ -16,9 +16,16 @@ function Navbar(props) {
       pageStyle.current = 0;
     }
   }
-  function onCh() {
-    setSecTxt(input.current.value);
-  }
+  // function onCh() {
+  //   // setSecTxt(input.current.value);
+  // }
+  const handleKeyDown = (e) => {
+    setSecTxt((prev) => prev + e);
+    if (e.key === "Enter") {
+      window.location.href = `/SearchedPage/${secTxt}`; // redirect
+      // Or: window.open("https://example.com", "_blank"); // open in new tab
+    }
+  };
 
   return (
     <>
@@ -41,7 +48,8 @@ function Navbar(props) {
             placeholder="Search..."
             className="w-[27vw] md:w-[15vw] rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             ref={input}
-            onChange={onCh}
+            onChange={(e) => setSecTxt(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           <Link to={`/SearchedPage/${secTxt}`}>
             <button className=" text-gray-500 hover:text-blue-500">🔍</button>

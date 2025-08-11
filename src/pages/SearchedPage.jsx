@@ -6,7 +6,7 @@ import HomeSongThum from "../Blocks/HomeSongThum";
 
 const SearchedPage = () => {
   const { sec } = useParams();
-
+  console.log(sec);
   const [songsData, setSongsData] = useState();
   const [lodings, setLoading] = useState(true);
   useEffect(() => {
