@@ -35,11 +35,11 @@ function Navbar(props) {
             />
           </Link>
         </div>
-        <div color=" flex flex-row searchBox ">
+        <div color=" inline-flex flex-row searchBox ">
           <input
             type="text"
             placeholder="Search..."
-            className=" rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+            className="w-[27vw] md:w-[15vw] rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             ref={input}
             onChange={onCh}
           />

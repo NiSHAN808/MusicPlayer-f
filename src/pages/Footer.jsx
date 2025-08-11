@@ -125,7 +125,7 @@ function Footer() {
         </div>
 
         <div className="w-full h-content mt-[3rem] pt-[3rem] inline-flex justify-center items-center  flex-col">
-          <div className="flex justify-around w-[20rem] ">
+          <div className="flex justify-around w-[80vw] md:w-[50vw] lg:w-[30vw]">
             <img src="/icon/x.png" className="w-[2rem]" />
             <img src="/icon/fb.png" className="w-[2rem]" />
             <img src="/icon/pin.png" className="w-[2rem]" />
