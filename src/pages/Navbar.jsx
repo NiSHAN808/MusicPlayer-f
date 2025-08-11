@@ -1,6 +1,7 @@
 import "./Navbarstyle.css";
 import React, { useRef, useState } from "react";
 import { Link } from "react-router";
+import { useNavigate } from "react-router-dom";
 function Navbar(props) {
   let pageStyle = useRef(0);
   const pages = useRef(0);
@@ -16,13 +17,14 @@ function Navbar(props) {
       pageStyle.current = 0;
     }
   }
+  const navigate = useNavigate();
   // function onCh() {
   //   // setSecTxt(input.current.value);
   // }
   const handleKeyDown = (e) => {
     setSecTxt((prev) => prev + e);
     if (e.key === "Enter") {
-      window.location.href = `/SearchedPage/${secTxt}`; // redirect
+      navigate(`/SearchedPage/${secTxt}`); // redirect
       // Or: window.open("https://example.com", "_blank"); // open in new tab
     }
   };

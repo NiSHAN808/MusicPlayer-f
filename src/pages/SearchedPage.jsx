@@ -10,7 +10,7 @@ const SearchedPage = () => {
   const [songsData, setSongsData] = useState();
   const [lodings, setLoading] = useState(true);
   useEffect(() => {
-    // fetch(`http://localhost:5000/search/${sec}`) for local
+    //  fetch(`http://localhost:5000/search/${sec}`) //for local
     fetch(`https://musicplayer-s.onrender.com/search/${sec}`)
       .then((res) => res.json())
       .then((response) => {
@@ -33,7 +33,7 @@ const SearchedPage = () => {
       {sec}
       <div></div>
       <div className="w-full inline-flex justify-center ">
-        <div className="w-[90vw] ">
+        <div className="w-full ">
           {songsData === undefined ? (
             <>loading</>
           ) : (
