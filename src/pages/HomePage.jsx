@@ -16,8 +16,8 @@ const HomePage = () => {
   const [songsData, setSongsData] = useState();
   const [lodings, setLoading] = useState(true);
   useEffect(() => {
-    //    fetch("http://localhost:5000/deezer/chart")
-    fetch("https://musicplayer-s.onrender.com/deezer/chart")
+    fetch("http://localhost:5000/deezer/chart")
+      // fetch("https://musicplayer-s.onrender.com/deezer/chart")
       .then((res) => res.json())
       .then((data) => {
         setSongsData(data);
@@ -42,7 +42,7 @@ const HomePage = () => {
       {/* <GoogleLogin onSuccess={handleSuccess} onError={handleError} />*/}
       <SongsForYou />
       <div className="w-full inline-flex justify-center ">
-        <div className="w-[90vw] ">
+        <div className="w-[100vw] ">
           {songsData === undefined ? (
             <>loading</>
           ) : (

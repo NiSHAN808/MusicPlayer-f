@@ -8,14 +8,14 @@ function HomeSongThum(props) {
     <>
       <Link to={link}>
         <div
-          className="text-white  w-[40vw] mt-[0.5rem]
+          className="text-white  w-[45vw] mt-[0.5rem]
         md:h-[32vw] md:w-[25vw] 
              lg:h-[24vw] lg:w-[18vw] 
         inline-flex flex-col ml-[3.3vw]"
         >
           <img
             src={props.image}
-            className="h-[40vw] w-[40vw] md:h-[25vw] md:w-[25vw]
+            className="h-[45vw] w-[45vw] md:h-[25vw] md:w-[25vw]
                  lg:h-[18vw] lg:w-[18vw] 
                   rounded-[1rem]"
           ></img>
