@@ -48,7 +48,7 @@ function Navbar(props) {
           <input
             type="text"
             placeholder="Search..."
-            className="w-[27vw] md:w-[15vw] rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+            className="w-[27vw] md:w-[15vw] pl-[0.3rem] rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             ref={input}
             onChange={(e) => setSecTxt(e.target.value)}
             onKeyDown={handleKeyDown}
