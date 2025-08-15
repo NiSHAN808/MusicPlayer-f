@@ -2,13 +2,17 @@ import "./Navbarstyle.css";
 import React, { useRef, useState } from "react";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
+
 function Navbar(props) {
   const user = JSON.parse(localStorage.getItem("user"));
+
   let pageStyle = useRef(0);
   const pages = useRef(0);
   let input = useRef();
 
   const [secTxt, setSecTxt] = useState();
+
   function handleHamClick() {
     if (pageStyle.current === 0) {
       pages.current.style.display = "flex";
@@ -19,16 +23,33 @@ function Navbar(props) {
     }
   }
   const navigate = useNavigate();
-  // function onCh() {
-  //   // setSecTxt(input.current.value);
-  // }
+
   const handleKeyDown = (e) => {
     setSecTxt((prev) => prev + e);
     if (e.key === "Enter") {
-      navigate(`/SearchedPage/${secTxt}`); // redirect
-      // Or: window.open("https://example.com", "_blank"); // open in new tab
+      navigate(`/SearchedPage/${secTxt}`);
     }
   };
+
+  const login = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      const userInfo = await fetch(
+        "https://www.googleapis.com/oauth2/v3/userinfo",
+        {
+          headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
+        }
+      ).then((res) => res.json());
+
+      console.log("Google user info:", userInfo);
+      localStorage.setItem("user", JSON.stringify(userInfo));
+      navigate("/");
+    },
+    ux_mode: "redirect",
+    redirect_uri: "http://localhost:5173",
+    onError: (error) => {
+      console.log("Login Failed:", error);
+    },
+  });
 
   return (
     <>
@@ -49,11 +70,10 @@ function Navbar(props) {
             <line x1="20" y1="70" x2="80" y2="70" />
           </svg>
         </div>
-
         <div className="logo">
           <Link
             to="/"
-            className="inline-flex justify-center h-fit  inline w-[40vw] h-[10vw] overflow-hidden   p-[1vw]  "
+            className="inline-flex justify-center h-fit  inline w-[20vw] h-[10vw] overflow-hidden   p-[1vw]  "
           >
             <img
               loading="lazy"
@@ -62,7 +82,6 @@ function Navbar(props) {
             />
           </Link>
         </div>
-
         <div color=" inline-flex flex-row searchBox ">
           <input
             type="text"
@@ -76,7 +95,7 @@ function Navbar(props) {
             <button className=" text-gray-500 hover:text-blue-500">🔍</button>
           </Link>{" "}
         </div>
-
+        {/* google sign in */}{" "}
         <div ref={pages} className="pages w-[40vw] flex justify-around">
           <Link
             to="/Playlist"
@@ -93,14 +112,21 @@ function Navbar(props) {
             pin
           </Link>
         </div>
-
+        {/* google sign in */}{" "}
         <div>
           {user === null ? (
-            <button className="bg-white rounded-full py-1 px-3 hover:bg-stone-400">
+            <button
+              onClick={() => login()}
+              className="bg-white rounded-full py-1 px-3 hover:bg-stone-400"
+            >
               Sign in
             </button>
           ) : (
-            <img alt="img"></img>
+            <img
+              className="rounded-full h-8"
+              src={user.picture}
+              alt="img"
+            ></img>
           )}
         </div>
       </nav>

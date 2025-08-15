@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import HomeSongThum from "../Blocks/HomeSongThum";
-import { GoogleLogin } from "@react-oauth/google";
 
 function SongsForYou() {
   return (
@@ -29,17 +28,8 @@ const HomePage = () => {
       });
   }, []);
 
-  // const handleSuccess = (credentialResponse) => {
-  //   console.log("JWT Token", credentialResponse.credential);
-  // };
-
-  // const handleError = () => {
-  //   console.log("Login Failed");
-  // };
-
   return (
     <div className="bg-black text-white">
-      {/* <GoogleLogin onSuccess={handleSuccess} onError={handleError} />*/}
       <SongsForYou />
       <div className="w-full inline-flex justify-center ">
         <div className="w-[100vw] ">
