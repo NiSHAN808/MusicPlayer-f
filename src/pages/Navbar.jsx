@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router";
 import { useNavigate } from "react-router-dom";
 function Navbar(props) {
+  const user = JSON.parse(localStorage.getItem("user"));
   let pageStyle = useRef(0);
   const pages = useRef(0);
   let input = useRef();
@@ -32,32 +33,6 @@ function Navbar(props) {
   return (
     <>
       <nav className="bg-black h-[10vw] flex justify-between items-center sticky top-0 lg:h-13  ">
-        <div className="logo">
-          <Link
-            to="/"
-            className="inline-flex justify-center h-fit  inline w-[40vw] h-[10vw] overflow-hidden   p-[1vw]  "
-          >
-            <img
-              loading="lazy"
-              src="../logo/NishanBeats.png"
-              className=" h-[8vw] lg:h-[3.5vw] xl:h-[2.5vw] 2xl:h-[1.8vw]"
-            />
-          </Link>
-        </div>
-        <div color=" inline-flex flex-row searchBox ">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-[27vw] md:w-[15vw] pl-[0.3rem] rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-            ref={input}
-            onChange={(e) => setSecTxt(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-          <Link to={`/SearchedPage/${secTxt}`}>
-            <button className=" text-gray-500 hover:text-blue-500">🔍</button>
-          </Link>{" "}
-        </div>
-
         <div onClick={handleHamClick} className="hidden hamburger z-5 mr-[5vw]">
           <svg
             width="40"
@@ -75,6 +50,33 @@ function Navbar(props) {
           </svg>
         </div>
 
+        <div className="logo">
+          <Link
+            to="/"
+            className="inline-flex justify-center h-fit  inline w-[40vw] h-[10vw] overflow-hidden   p-[1vw]  "
+          >
+            <img
+              loading="lazy"
+              src="../logo/NishanBeats.png"
+              className=" h-[8vw] lg:h-[3.5vw] xl:h-[2.5vw] 2xl:h-[1.8vw]"
+            />
+          </Link>
+        </div>
+
+        <div color=" inline-flex flex-row searchBox ">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-[27vw] md:w-[15vw] pl-[0.3rem] rounded-full border border-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+            ref={input}
+            onChange={(e) => setSecTxt(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+          <Link to={`/SearchedPage/${secTxt}`}>
+            <button className=" text-gray-500 hover:text-blue-500">🔍</button>
+          </Link>{" "}
+        </div>
+
         <div ref={pages} className="pages w-[40vw] flex justify-around">
           <Link
             to="/Playlist"
@@ -90,6 +92,16 @@ function Navbar(props) {
           >
             pin
           </Link>
+        </div>
+
+        <div>
+          {user === null ? (
+            <button className="bg-white rounded-full py-1 px-3 hover:bg-stone-400">
+              Sign in
+            </button>
+          ) : (
+            <img alt="img"></img>
+          )}
         </div>
       </nav>
     </>
