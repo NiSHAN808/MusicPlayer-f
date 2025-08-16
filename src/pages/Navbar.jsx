@@ -54,33 +54,39 @@ function Navbar(props) {
   return (
     <>
       <nav className="bg-black h-[10vw] flex justify-between items-center sticky top-0 lg:h-13  ">
-        <div onClick={handleHamClick} className="hidden hamburger z-5 mr-[5vw]">
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="white"
-            strokeWidth="10"
-            strokeLinecap="round"
+        <div className="w-[40vw] inline-flex  justify-center items-center">
+          <div
+            onClick={handleHamClick}
+            className="none hamburger z-5 mr-[1vw] mt-[1.5vw]"
           >
-            <line x1="20" y1="30" x2="80" y2="30" />
-            <line x1="20" y1="50" x2="80" y2="50" />
-            <line x1="20" y1="70" x2="80" y2="70" />
-          </svg>
-        </div>
-        <div className="logo">
-          <Link
-            to="/"
-            className="inline-flex justify-center h-fit  inline w-[20vw] h-[10vw] overflow-hidden   p-[1vw]  "
-          >
-            <img
-              loading="lazy"
-              src="../logo/NishanBeats.png"
-              className=" h-[8vw] lg:h-[3.5vw] xl:h-[2.5vw] 2xl:h-[1.8vw]"
-            />
-          </Link>
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="white"
+              strokeWidth="10"
+              strokeLinecap="round"
+            >
+              <line x1="20" y1="30" x2="80" y2="30" />
+              <line x1="20" y1="50" x2="80" y2="50" />
+              <line x1="20" y1="70" x2="80" y2="70" />
+            </svg>
+          </div>
+
+          <div className="logo">
+            <Link
+              to="/"
+              className="inline-flex justify-center h-fit  inline w-[20vw] h-[10vw] overflow-hidden   p-[1vw]  "
+            >
+              <img
+                loading="lazy"
+                src="../logo/NishanBeats.png"
+                className=" h-[8vw] lg:h-[3.5vw] xl:h-[2.5vw] 2xl:h-[1.8vw]"
+              />
+            </Link>
+          </div>
         </div>
         <div color=" inline-flex flex-row searchBox ">
           <input
