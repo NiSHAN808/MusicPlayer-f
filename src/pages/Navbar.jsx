@@ -53,11 +53,12 @@ function Navbar(props) {
 
   return (
     <>
-      <nav className="bg-black h-[10vw] flex justify-between items-center sticky top-0 lg:h-13  ">
-        <div className="w-[40vw] inline-flex  justify-center items-center">
+      <nav className="z-5 bg-black h-[10vw] flex justify-between items-center sticky top-0 lg:h-13  ">
+        {/* hamburger and logo */}
+        <div className="w-[40vw] md:w-p[] inline-flex  justify-center items-center">
           <div
             onClick={handleHamClick}
-            className="none hamburger z-5 mr-[1vw] mt-[1.5vw]"
+            className="hidden hamburger z-5 mr-[1vw] mt-[1.5vw] lg:m-[1vw]"
           >
             <svg
               width="40"
@@ -88,7 +89,8 @@ function Navbar(props) {
             </Link>
           </div>
         </div>
-        <div color=" inline-flex flex-row searchBox ">
+        {/*search bar*/}
+        <div className=" inline-flex items-center flex-row searchBox ">
           <input
             type="text"
             placeholder="Search..."
@@ -98,11 +100,20 @@ function Navbar(props) {
             onKeyDown={handleKeyDown}
           />
           <Link to={`/SearchedPage/${secTxt}`}>
-            <button className=" text-gray-500 hover:text-blue-500">🔍</button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              className="w-5 h-5 ml-[0.5vw]"
+            >
+              <path
+                d="m29.43 25.39-6.9-6.9A10.86 10.86 0 0 0 24 13a11 11 0 1 0-5.5 9.52l6.91 6.9a2.06 2.06 0 0 0 1.48.59 3.18 3.18 0 0 0 2.17-1 2.6 2.6 0 0 0 .37-3.62zm-11-5.18A8.89 8.89 0 0 1 13 22a9 9 0 1 1 7.23-3.65 9.33 9.33 0 0 1-1.85 1.86zm9.26 7.41a1 1 0 0 1-.82.38l-6.66-6.65-.05-.05 1.2-1.2h.05L28 26.79a1 1 0 0 1-.36.83z"
+                style={{ fill: "#8834e0" }}
+              />
+            </svg>
           </Link>{" "}
         </div>
-        {/* google sign in */}{" "}
-        <div ref={pages} className="pages w-[40vw] flex justify-around">
+        {/* pages */}{" "}
+        <div ref={pages} className="pages w-[20vw] flex justify-around">
           <Link
             to="/Playlist"
             className="hover:text-purple-700 md:text-[3.5vw] text-white lg:text-[2vw] xl:text-[1.9vw]"
@@ -123,13 +134,13 @@ function Navbar(props) {
           {user === null ? (
             <button
               onClick={() => login()}
-              className="bg-white rounded-full py-1 px-3 hover:bg-stone-400"
+              className="bg-white rounded-full py-1 px-3 hover:bg-stone-400 mr-[2vw]"
             >
               Sign in
             </button>
           ) : (
             <img
-              className="rounded-full h-8"
+              className="rounded-full h-8 mr-[2vw]"
               src={user.picture}
               alt="img"
             ></img>

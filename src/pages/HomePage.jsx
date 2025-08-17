@@ -15,8 +15,8 @@ const HomePage = () => {
   const [songsData, setSongsData] = useState();
   const [lodings, setLoading] = useState(true);
   useEffect(() => {
-    //  fetch("http://localhost:5000/deezer/chart")
-    fetch("https://musicplayer-s.onrender.com/deezer/chart")
+    fetch("http://localhost:5000/deezer/chart")
+      // fetch("https://musicplayer-s.onrender.com/deezer/chart")
       .then((res) => res.json())
       .then((data) => {
         setSongsData(data);
@@ -37,7 +37,12 @@ const HomePage = () => {
             <div className="h-[90vh]">loading</div>
           ) : (
             songsData.tracks.data.map((d, index) => (
-              <div className="inline-flex" key={index}>
+              <div
+                className="inline-flex lg:grid
+ lg:grid-cols-4 lg:gap-4
+              "
+                key={index}
+              >
                 <HomeSongThum
                   titleShort={d.title_short}
                   artistName={d.artist.name}

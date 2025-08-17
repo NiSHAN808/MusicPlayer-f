@@ -14,22 +14,25 @@ function Song() {
   const { id } = useParams();
 
   useEffect(() => {
-    // fetch(`http://localhost:5000/track/${id}`)
-    fetch(`https://musicplayer-s.onrender.com/track/${id}`)
+    fetch(`http://localhost:5000/track/${id}`)
+      //fetch(`https://musicplayer-s.onrender.com/track/${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
 
-    // fetch("http://localhost:5000/deezer/chart")
-    fetch("https://musicplayer-s.onrender.com/deezer/chart")
+    fetch("http://localhost:5000/deezer/chart")
+      //    fetch("https://musicplayer-s.onrender.com/deezer/chart")
       .then((res) => res.json())
       .then((data) => {
         setDataRec(data);
       });
-    if (audioRef.current) {
+  }, [id]);
+
+  useEffect(() => {
+    if (audioRef.current && data?.preview) {
       audioRef.current.load();
       audioRef.current.play();
     }
-  }, [id]);
+  }, [data]);
 
   function handleMusicChange(index) {
     setPlayedMusic(data[index].music);
@@ -45,7 +48,7 @@ function Song() {
     <>
       <div className="flex flex-col lg:flex-row">
         <div className="inline-flex flex-col justify-center items-center h-[50vh] w-full lg:h-[100vh] lg:w-[40vw] bg-purple-300  ">
-          <div className="inline-flex  h-[30vw] w-[30vw] bg-blue-300 ">
+          <div className="inline-flex  h-[30vw] w-[30vw]  ">
             {data?.album?.cover_medium ? (
               <img
                 src={data.album.cover_medium}
@@ -63,6 +66,9 @@ function Song() {
             </audio>
           ) : null}{" "}
           <input type="checkbox"></input>
+          <h1 className="text-[4vw] font-mono w-full inline-flex justify-center  overflow-hidden">
+            {data.title}
+          </h1>
         </div>
         <div className="bg-stone-950 inline-flex flex-col h-fit w-full  lg:h-[100vh]  lg:w-[60vw] p-[2vw] lg:p-[1.1vw] lg:overflow-y-scroll  scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200">
           {dataRec.tracks === undefined ? (

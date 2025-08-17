@@ -23,7 +23,9 @@ const SongPageRec = (props) => {
             <div className=" font-bold  text-[4.5vw] lg:text-[2.5vw]  overflow-hidden h-[6vw] lg:h-[4vw]">
               {props.title}
             </div>
-            <div className=" text-[3.5vw] lg:text-[2vw]">{props.artist}</div>
+            <div className=" text-[3.5vw] text-stone-500 lg:text-[2vw] overflow-hidden h-[5vw] lg:h-[3vw]">
+              {props.artist}
+            </div>
           </div>
           <div className="bg-red absolute right-0 inline-flex justify-center items-center h-full p-[3vw]">
             {props.duration}

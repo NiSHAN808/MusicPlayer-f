@@ -35,7 +35,6 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Playlist />
-        <Footer />
       </>
     ),
   },
@@ -55,7 +54,6 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Song />
-        <Footer />
       </>
     ),
   },
