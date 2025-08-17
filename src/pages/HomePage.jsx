@@ -15,8 +15,8 @@ const HomePage = () => {
   const [songsData, setSongsData] = useState();
   const [lodings, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/deezer/chart")
-      // fetch("https://musicplayer-s.onrender.com/deezer/chart")
+    // fetch("http://localhost:5000/deezer/chart")
+    fetch("https://musicplayer-s.onrender.com/deezer/chart")
       .then((res) => res.json())
       .then((data) => {
         setSongsData(data);

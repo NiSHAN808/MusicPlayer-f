@@ -19,8 +19,8 @@ function Song() {
       .then((res) => res.json())
       .then((data) => setData(data));
 
-    fetch("http://localhost:5000/deezer/chart")
-      //    fetch("https://musicplayer-s.onrender.com/deezer/chart")
+    // fetch("http://localhost:5000/deezer/chart")
+    fetch("https://musicplayer-s.onrender.com/deezer/chart")
       .then((res) => res.json())
       .then((data) => {
         setDataRec(data);
