@@ -11,7 +11,7 @@ function HomeSongThum(props) {
           className="text-white  w-[45vw] mt-[0.5rem]
         md:h-[32vw] md:w-[25vw] 
              lg:h-[24vw] lg:w-[18vw] 
-        inline-flex flex-col ml-[3.3vw]"
+        inline-flex flex-col mr-[3.3vw]"
         >
           <img
             src={props.image}

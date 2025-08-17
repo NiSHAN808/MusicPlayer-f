@@ -32,14 +32,13 @@ const HomePage = () => {
     <div className="bg-black text-white">
       <SongsForYou />
       <div className="w-full inline-flex justify-center ">
-        <div className="w-[100vw] ">
+        <div className="w-[85.2vw] ">
           {songsData === undefined ? (
             <div className="h-[90vh]">loading</div>
           ) : (
             songsData.tracks.data.map((d, index) => (
               <div
-                className="inline-flex lg:grid
- lg:grid-cols-4 lg:gap-4
+                className="inline-flex 
               "
                 key={index}
               >
