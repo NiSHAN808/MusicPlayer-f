@@ -14,8 +14,8 @@ function Song() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/track/${id}`)
-      //fetch(`https://musicplayer-s.onrender.com/track/${id}`)
+    //fetch(`http://localhost:5000/track/${id}`)
+    fetch(`https://musicplayer-s.onrender.com/track/${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
 
