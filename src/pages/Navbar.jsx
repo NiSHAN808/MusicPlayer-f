@@ -31,6 +31,26 @@ function Navbar(props) {
     }
   };
 
+  // const login = useGoogleLogin({
+  //   onSuccess: async (tokenResponse) => {
+  //     const userInfo = await fetch(
+  //       "https://www.googleapis.com/oauth2/v3/userinfo",
+  //       {
+  //         headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
+  //       }
+  //     ).then((res) => res.json());
+
+  //     console.log("Google user info:", userInfo);
+  //     localStorage.setItem("user", JSON.stringify(userInfo));
+  //     navigate("/");
+  //   },
+  //   ux_mode: "redirect",
+  //   redirect_uri: "http://localhost:5173",
+  //   onError: (error) => {
+  //     console.log("Login Failed:", error);
+  //   },
+  // });
+
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       const userInfo = await fetch(
@@ -40,14 +60,26 @@ function Navbar(props) {
         }
       ).then((res) => res.json());
 
-      console.log("Google user info:", userInfo);
-      localStorage.setItem("user", JSON.stringify(userInfo));
+      console.log(tokenResponse);
+
+      // Send to backend
+      const response = await fetch(
+        "http://localhost:5000/api/users/google-login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userInfo),
+        }
+      );
+
+      console.log(response);
+
+      const savedUser = await response.json();
+      console.log("User saved in DB:", savedUser);
+
+      // store locally if needed
+      localStorage.setItem("user", JSON.stringify(savedUser));
       navigate("/");
-    },
-    ux_mode: "redirect",
-    redirect_uri: "http://localhost:5173",
-    onError: (error) => {
-      console.log("Login Failed:", error);
     },
   });
 
@@ -134,7 +166,7 @@ function Navbar(props) {
           {user === null ? (
             <button
               onClick={() => login()}
-              className="bg-white rounded-full py-1 px-3 hover:bg-stone-400 mr-[2vw]"
+              className="bg-white rounded-full py-1 px-3 hover:bg-purple-700 mr-[2vw]"
             >
               Sign in
             </button>
